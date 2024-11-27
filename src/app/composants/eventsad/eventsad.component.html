@@ -1,0 +1,105 @@
+<div class="search-container">
+    <input type="text" id="search" name="search" placeholder="Rechercher par ID ou jour..." #searchInput>
+    <button type="button" class="butt" (click)="performSearch(searchInput.value)">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+      </svg>
+    </button>
+  </div>
+  
+  <div class="container-xl">
+    <div class="table-responsive">
+      <div class="table-wrapper">
+        <table class="table table-striped table-hover table-bordered table-content">
+          <thead>
+            <tr class="center-align">
+              <th>Id</th>
+              <th>Jour</th>
+              <th>Date</th>
+              <th>Destination</th>
+              <th>Interventions</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let event of events" class="center-align">
+              <td>{{ event.id }}</td>
+              <td>{{ event.jour }}</td>
+              <td>{{ event.date }}</td>
+              <td>{{ event.destination }}</td>
+              <td>
+                <ul>
+                  <li *ngFor="let intervention of event.intervention">
+                    {{ intervention.nom }} - {{ intervention.role }}
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <button type="button" (click)="deleteEvent(event.id)" class="btn">
+                  <i class='fas fa-trash-alt delete'></i>
+                </button>
+                <button type="button" (click)="modifierEvent(event)" class="btn">
+                  <i class="fa fa-edit edit"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  
+    <div class="col-sm-6">
+      <button class="btn btn-success" (click)="toggleFormVisibility()">
+        <i class='fas fa-plus-circle'></i><span> Ajouter</span>
+      </button>
+    </div>
+  
+    <form [formGroup]="eventForm" (ngSubmit)="addEvent()">
+      <div *ngIf="visible">
+        <div class="mb-3">
+          <label for="jour">Jour</label>
+          <input type="text" class="form-control" formControlName="jour">
+          <!-- <div *ngIf="jour.invalid && jour.dirty" class="alert alert-warning" class="b">
+            Le jour doit commencer par une lettre majuscule et contenir uniquement des lettres.
+          </div> -->
+        </div>
+        <div class="mb-3">
+          <label for="date">Date</label>
+          <input type="datetime-local" class="form-control" formControlName="date">
+        </div>
+        <div class="mb-3">
+          <label for="destination">Destination</label>
+          <input type="text" class="form-control" formControlName="destination">
+        </div>
+        <div class="mb-3">
+          <label for="image">Image URL</label>
+          <input type="text" class="form-control" formControlName="image">
+        </div>
+        <div class="mb-3">
+          <label for="cn">Capacité maximale</label>
+          <input type="number" class="form-control" formControlName="cn">
+          <!-- <div *ngIf="cn.invalid && cn.dirty" class="alert alert-warning" class="b">
+            La limite de la capacité ne doit pas dépasser 50.
+          </div> -->
+        </div>
+        <div class="mb-3">
+          <label for="test">Test</label>
+          <input type="checkbox" class="form-check-input" formControlName="test">
+        </div>
+        <div formArrayName="intervention">
+          <div class="mb-3" *ngFor="let intervention of lesinterventions.controls; let i = index" [formGroupName]="i">
+            <label for="nom">Nom de l'intervenant {{ i + 1 }}</label>
+            <input type="text" class="form-control" formControlName="nom">
+            <label for="role">Rôle de l'intervenant {{ i + 1 }}</label>
+            <input type="text" class="form-control" formControlName="role">
+          </div>
+        </div>
+        <div style="justify-content: space-between">
+          <button class="butt" type="button" (click)="onajouter()" class="btn btn-success">Ajouter intervenant</button>
+          <button class="butt" type="button" (click)="updateEvent()" class="btn btn-success">Valider les modifications</button>
+          <button class="butt" type="submit" class="btn btn-success">Enregistrer</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  

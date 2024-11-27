@@ -1,0 +1,47 @@
+.custom-form {
+    background-color: #f9f9f9;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    margin-bottom: 40px;
+  }
+  
+  .btn-primary {
+    background-color: #066d66;
+    border-color: #066d66;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-primary:hover {
+    background-color: #045d57;
+    border-color: #045d57;
+  }
+  
+  .input-group-text {
+    background-color: #066d66;
+    color: #fff;
+    border-color: #066d66;
+  }
+  
+  .input-group-text i {
+    color: #fff;
+  }
+  
+  .input-group input[type="text"]:focus,
+  .input-group input[type="email"]:focus,
+  .input-group input[type="tel"]:focus,
+  .input-group textarea:focus,
+  .input-group select:focus {
+    border-color: #066d66;
+    box-shadow: 0 0 5px #066d66;
+  }
+  .b{
+    width:400px;
+    height: 50px;
+    background-color: rgba(158, 42, 42, 0.582);
+    border: 1px solid red;
+    border-radius: 5px;
+  }
+  
+  
+  

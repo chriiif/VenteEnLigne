@@ -1,0 +1,15 @@
+*{
+    background-color: white;
+}
+#butt
+{
+    justify-content: space-between;
+    color:white;
+    background-color: rgb(21, 133, 114);
+}
+#butt:hover
+{
+    justify-content: space-between;
+    color:white;
+    background-color: rgb(13, 85, 73);
+}

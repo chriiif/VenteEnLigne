@@ -1,0 +1,124 @@
+h1 {
+    font-size: 46px;
+    line-height: 54px;
+    color: #088178;
+  }
+  
+  .nav-link {
+    text-decoration: none;
+    background-color: rgb(12, 71, 68);
+  }
+  
+  .custom-button {
+    background-color: hsl(176, 90%, 20%);
+    border: 1px solid hsl(27, 51%, 60%);
+    color: white;
+    transition: background-color 0.3s, border 0.3s, color 0.3s;
+    cursor: pointer;
+    text-align: center;
+    padding: 10px 20px;
+    border-radius: 5px;
+  }
+  
+  .custom-button:hover {
+    background-color: rgb(12, 71, 68);
+    border: 1px solid hsl(27, 51%, 60%);
+    color: white;
+  }
+  
+  .list-group-item {
+    margin-bottom: 10px;
+    background-color: #D2AF93;
+  }
+  
+  
+  .custom-list-item:first-child {
+    border-top: none;
+  }
+  
+  .custom-list-group {
+    border: none;
+    padding: 0;
+  }
+  
+  .custom-list-item {
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .btn-custom {
+    background-color: #0a9277;
+    color: #fff;
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+  }
+  
+  .custom-card {
+    border: 2px solid #088178;
+    border-radius: 10px;
+    padding: 0; 
+    text-align: center;
+    height: 350px; 
+    width: 180px;
+    justify-content: space-between;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    margin: 10px; 
+  }
+  
+  .card-img-top {
+    max-width: 150px; 
+    max-height: 150px;
+    border: 2px solid #088178;
+    border-radius: 50%; 
+    text-align: center;
+    margin-top: 10px;
+    
+  }
+  
+  .card-body {
+    padding: 10px;
+    flex: 1; 
+  }
+  
+  .card-title {
+    font-size: 18px;
+    line-height: 24px;
+    color: #088178;
+  }
+  
+  .card-text {
+    margin: 0;
+    font-size: 14px;
+    line-height: 18px;
+  }
+  
+  .btn-custom {
+    background-color: transparent; 
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    transition: color 0.3s; 
+    cursor: pointer;
+    text-align: center;
+    color: #fff;
+    border-bottom: 2px solid #a16839;
+  }
+  
+  .btn-custom:hover{
+    color: #a16839;
+    border:2px solid #a16839 ;
+  
+  
+  }
+  
+  
+  
+  

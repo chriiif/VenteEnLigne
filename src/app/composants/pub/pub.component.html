@@ -1,0 +1,12 @@
+<div class="card">
+    <div class="card-header">
+      Featured Books
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" *ngFor="let book of books">
+        <h5 class="card-title">{{ book.volumeInfo.title }}</h5>
+        <p class="card-text">{{ book.volumeInfo.authors }}</p>
+      </li>
+    </ul>
+  </div>
+  

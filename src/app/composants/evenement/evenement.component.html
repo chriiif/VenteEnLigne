@@ -1,0 +1,75 @@
+<app-menu></app-menu>
+<div class="a">
+   <header class="header">
+    <div class="container text-center">
+      <h1 class="mb-4">Evènements à venir Cette Semaine</h1>
+    </div>
+    <div class="search-container">
+      <input type="text" id="search" name="search" placeholder="entrer votre jour..." #searchInput>
+      <button type="submit" (click)="performSearch(searchInput.value)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+      </svg></button>
+    </div>
+      </header>
+      
+      
+      <div class="container event-container">
+        <div class="events row justify-content-center gap-3">
+          <div *ngFor="let event of filteredEvents" class="col-md-4">
+            <div *ngIf="event.jour.toLowerCase() === searchInput.value.toLowerCase()" class="card shadow">
+              <img [src]="event.image" class="card-img-top" alt="Event Image">
+              <div class="card-body">
+                <h5 class="card-title">{{ event.jour }}</h5>
+                <p class="card-text"><strong><i class="far fa-clock me-2"></i>Date:</strong> {{ event.date | date: 'long' }}</p>
+                <p class="card-text">
+                  <strong><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+                    <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
+                    <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                  </svg> Location:</strong> {{ event.destination | titlecase}}
+                </p>
+                <hr>
+                <h6>Intervenants:</h6>
+                <div *ngFor="let e of event.intervention">
+                  <p class="card-text"><strong>Nom De L`organisateur:</strong>  {{ e.nom | titlecase}}</p>
+                  <p class="card-text"><strong>Son Rôle:</strong> {{ e.role | lowercase}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+      
+      
+      
+      
+ 
+ 
+  
+  <div class="container event-container" >
+    <div class="events d-flex justify-content-center flex-wrap gap-3">
+      <div *ngFor="let event of events" class="event-card card border-0 shadow">
+        <div class="card-content d-flex align-items-center" >
+          <div class="card-image me-3">
+            <img [src]="event.image" alt="Image" class="img-fluid rounded-3">
+          </div>
+          <div class="card-data">
+            <h5 class="card-title"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar4-week" viewBox="0 0 16 16">
+              <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M2 2a1 1 0 0 0-1 1v1h14V3a1 1 0 0 0-1-1zm13 3H1v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z"/>
+              <path d="M11 7.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-2 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"/>
+            </svg> {{ event.jour | titlecase}}</h5>
+            <p class="card-text"><strong><i class="fa-sharp fa-regular fa-clock"></i> Date:</strong> {{ event.date | date: 'long' }}</p>
+            <p class="card-text"><strong><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+              <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
+              <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+            </svg> Location:</strong> {{ event.destination | lowercase}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <app-footer></app-footer>
+  
+

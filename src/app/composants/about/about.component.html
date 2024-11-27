@@ -1,0 +1,93 @@
+<app-menu></app-menu>
+    <header class="header" [ngClass]="{ 'custom-header': showCustomHeader }">
+        <div class="container">
+            <h1>À Propos de Notre Club Étudiant</h1>
+            <p style="color:#a16839">Soutenir les étudiants, mettre en valeur la créativité</p>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <h2>Que signifie seva ?</h2>
+            <p>
+                <span style="font-weight: bold; color: brown;">"Seva"</span> dans l'hindouisme est le service désintéressé, une forme de yoga karmique, de dévotion disciplinée et de don. Il favorise la compassion, la gentillesse et la libération (Moksha) de la réincarnation (Samsara) à travers la pratique spirituelle d'ego-transcendance (Sadhana).
+            </p>
+        </div>
+    </section>
+
+
+    <section class="section bg-light">
+        <div class="container">
+          <h2 class="text-center mb-5">Qui Sommes-Nous ?</h2>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="card mb-4 shadow-lg" style="height: 100%;">
+                <img src="assets/team1.jpg" class="card-img-top" alt="Image 1" style="height: 300px; object-fit: cover;">
+                <div class="card-body">
+                  <h5 class="card-title">Artisans Étudiants</h5>
+                  <p class="card-text">
+                    Nous sommes un groupe soutenant la créativité des étudiants de notre campus en offrant des produits uniques et faits main au grand public. Découvrez une gamme diversifiée d'articles artisanaux, allant des bijoux aux décorations d'intérieur, créés avec amour par nos membres talentueux.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card mb-4 shadow-lg" style="height: 100%;">
+                <img src="assets/team2.jpg" class="card-img-top" alt="Image 2" style="height: 300px; object-fit: cover;">
+                <div class="card-body">
+                  <h5 class="card-title">Notre Mission</h5>
+                  <p class="card-text">
+                    Organisant régulièrement des tournées dans différentes universités, nous exposons nos créations et offrons aux étudiants la possibilité d'acquérir des pièces uniques et originales. Partagez notre passion pour l'artisanat et élargissez notre communauté d'amateurs d'art.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+ 
+   
+    <section class="horizontal-scroll">
+        <div class="container">
+          <h2 class="text-center" style="color: #088178; font-size: 2.5rem; margin-bottom: 30px;">Our Members</h2>
+          <div class="row flex-nowrap overflow-hidden">
+            <div class="col" *ngFor="let membre of lesmembres">
+              <div class="card blob-shape" style="background-color: #f1ae77;">
+                <div class="d-flex justify-content-center">
+                  <img [src]="membre.image" class="card-img-top img-fluid rounded-circle" alt="Member Image" style="width: 150px; height: 150px; margin: 10px;">
+                </div>
+                <div class="card-body text-center">
+                  <h5 class="card-title" style="font-size: 1.5rem;">{{ membre.nom | uppercase }}</h5>
+                  <p class="card-text" style="font-weight: 500;">{{ membre.role | titlecase}}</p>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item" style="border: none; background-color: #f1ae77;">
+                      <i class="fas fa-envelope"></i> {{ membre.email }}
+                    </li>
+                    <li class="list-group-item" style="border: none; background-color: #f1ae77;">
+                      <i class="fas fa-phone"></i> tel:{{ membre.phone }}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+    <section class="section">
+        <div class="container">
+            <h2>Rejoignez Notre Club</h2>
+            <p>
+                Vous partagez notre passion pour le monde merveilleux de la création artisanale ? Rejoignez notre club et faites partie d'une communauté créative. Découvrez nos produits uniques et participez à nos tournées artistiques.
+            </p>
+        </div>
+    </section>
+
+    <div class="cta">
+        <div class="container">
+            <h2>Prêt à Commencer ?</h2>
+            <a (click)="contacter()">Contactez-Nous</a>
+        </div>
+    </div>
+<app-footer></app-footer>

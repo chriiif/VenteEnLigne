@@ -1,0 +1,48 @@
+<div style="background-color:white">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+          <div class="mb-3">
+  <h3 class="text-center mb-4" style="color: #066d66;">vous voullez etre un membre de notre club!</h3>
+  <form [formGroup]="memform" (ngSubmit)="afficher()">
+    <div class="mb-3">
+        <span class="input-group-text"><i class="fas fa-user"></i></span>
+        <input type="text" class="form-control" formControlName="prenom" placeholder="prenom">
+        <div [ngClass]="{ 'b': prenom.invalid && prenom.dirty, 'b1': !prenom.invalid && prenom.dirty }">
+          Le prénom doit être seulement des lettres et commencer par une lettre majuscule.
+        </div>
+      </div>
+    <div class="mb-3">
+        <span class="input-group-text"><i class="fas fa-user"></i></span>
+        <input type="text" class="form-control" formControlName="nom" placeholder="nom">
+        <div [ngClass]="{ 'b': nom.invalid && nom.dirty, 'b1': !nom.invalid && nom.dirty }">
+            Le nom doit être seulement des lettres et commence par un lette majuscule.
+          </div>
+    </div>
+    <div class="mb-3">
+        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+        <input type="email" class="form-control" formControlName="email" placeholder="Email">
+        <div [ngClass]="{ 'b': email.invalid && email.dirty, 'b1': !email.invalid && email.dirty }">
+            Le mail doit etre de la forme : ...@gmail... .
+          </div>
+    </div>
+    <div class="mb-3">
+        <span class="input-group-text"><i class="fas fa-phone"></i></span>
+        <input type="tel" class="form-control" placeholder="Téléphone" formControlName="telephone" >
+        <div [ngClass]="{ 'b': telephone.invalid && telephone.dirty, 'b1': !telephone.invalid && telephone.dirty }">
+            Le telephone doit contenir seulment 8 chiffres.
+          </div>
+    </div>
+    <div class="d-grid gap-2">
+        <button type="submit"  
+        [class.ng-valid]="memform.valid"
+          [class.ng-invalid]="memform.invalid"
+        class="btn btn-primary" [disabled]="memform.invalid">Rejoindre</button>
+      </div>
+  </form>
+  </div>
+  </div>
+  </div>
+  </div>
+  
+  
+  

@@ -1,0 +1,27 @@
+<form [formGroup]="passform">
+        <div style="background-color:white">
+          <div class="container py-5">
+            <div class="row justify-content-center">
+              <div class="mb-3">
+                <h3 class="text-center mb-4" style="color: #066d66;">Entrez votre nouveau mot de passe ici !</h3>
+                <div class="input-group">
+                  <span class="input-group-text"><i class="fas fa-user"></i></span>
+                  <input type="password" class="form-control" formControlName="pass" placeholder="nouveau mot de passe" #l>
+                </div>
+                <div *ngIf="pass?.invalid && pass?.dirty" class="alter alter-warning b">
+                  Le mot de passe doit être composé de 4 chiffres.
+                </div>
+                <div>
+                  <button type="submit" (click)="onmodifier(l.value)" class="btn" [ngClass]="{'btn-primary': passform.valid, 'btn-disabled': passform.invalid}">
+                    <a>Valider</a>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      
+
+                
+            

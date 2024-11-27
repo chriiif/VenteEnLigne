@@ -1,0 +1,27 @@
+.creative-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #066d66; 
+    color: #fff; 
+    text-decoration: none;
+    border: 2px solid #066d66; 
+    border-radius: 5px; 
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+    cursor: pointer;
+  }
+  
+  .creative-button:hover {
+    background-color: #fff;
+    color: #066d66;
+    transform: scale(1.1); 
+    border: 2px solid #6d2c06; 
+  }
+  
+  .creative-button:active {
+    transform: scale(0.9); 
+  }
+  
+  
+  
+  

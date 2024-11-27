@@ -1,0 +1,84 @@
+<div class="container-xl">
+    <div class="table-responsive">
+      <div class="table-wrapper">
+        <table class="table table-striped table-hover table-bordered table-content">
+          <thead>
+            <tr class="center-align">
+              <th>Id</th>
+              <th>Nom</th>
+              <th>Role</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let m of lesmembres" class="center-align">
+              <td>{{ m.id }}</td>
+              <td>{{ m.nom }}</td>
+              <td>{{ m.role }}</td>
+              <td>{{ m.email }}</td>
+              <td>{{ m.phone }}</td>
+              <td>
+                <button type="button" (click)="deleteMembre(m.id)" class="btn">
+                  <i class='fas fa-trash-alt delete'></i>
+                </button>
+                <button type="button" (click)="modifierEvent(m)" class="btn"><i class="fa fa-edit edit"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div style="background-color: white;">
+      <div class="container py-5">
+        <div class="row justify-content-center">
+          <div class="mb-3" *ngIf="visible">
+            <h3 class="text-center mb-4" style="color: #066d66;">Vous voulez être un membre de notre club!</h3>
+            <form [formGroup]="memform" (ngSubmit)="updateEvent()">
+              <div class="mb-3">
+                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                <input type="text" class="form-control" formControlName="nom">
+                <div *ngIf="memform.get('nom')?.invalid && memform.get('nom')?.dirty" class="alter alter-warning">
+                  Le nom doit être seulement des lettres et commence par une lettre majuscule.
+                </div>
+              </div>
+               
+                <div class="mb-3">
+                  <span class="input-group-text"><i class="fas fa-user"></i></span>
+                  <input type="text" class="form-control" formControlName="role">
+                  <!-- <div *ngIf="role.invalid && role.dirty" class="alter alter-warning">
+                      Le role doit être que des lettres.
+                    </div> -->
+              </div>
+              <div class="mb-3">
+                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                <input type="text" class="form-control" formControlName="image">
+                <!-- <div *ngIf="image.invalid && image.dirty" class="alter alter-warning">
+                  </div> -->
+            </div>
+                <div class="mb-3">
+                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                    <input type="email" class="form-control" formControlName="email">
+                    <!-- <div *ngIf="email.invalid && email.dirty" class="alter alter-warning">
+                        Le mail doit etre de la forme : ---@gmail.--- .
+                      </div> -->
+                </div>
+                <div class="mb-3">
+                    <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                    <input type="tel" class="form-control" placeholder="Téléphone" formControlName="phone">
+                    <!-- <div *ngIf="phone.invalid && phone.dirty" class="alter alter-warning">
+                        Le telephone doit contenir seulment 8 chiffres.
+                      </div>  -->
+                </div>
+                 <button type="submit"  class="btn" id="butt" >Valider les modifications</button>  
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+   
+  
+  

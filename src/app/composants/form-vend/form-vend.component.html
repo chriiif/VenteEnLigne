@@ -1,0 +1,82 @@
+<div style="background-color:white">
+    <div class="container py-5">
+      <div class="row justify-content-center">
+        <form [formGroup]="vendform" (ngSubmit)="afficher()">
+        <div class="mb-3">
+            <h3 class="text-center mb-4" style="color: #066d66;">Présentez votre produit ici et boostez sa visibilité !</h3>
+            <div class="input-group">
+              <span class="input-group-text"><i class="fas fa-user"></i></span>
+              <input type="text" class="form-control" formControlName="prenom" placeholder="Prenom">
+              <div *ngIf="prenom.invalid && prenom.dirty" class="alter alter-warning" class="b">
+                Le prenom doit être seulement des lettres et commence par un lette majuscule..
+              </div>
+            </div> 
+        </div>  
+          <div class="mb-3">
+            <div class="input-group">
+              <span class="input-group-text"><i class="fas fa-user"></i></span>
+              <input type="text" class="form-control" formControlName="nom" placeholder="Nom" >
+            
+            <div *ngIf="nom.invalid && nom.dirty" class="alter alter-warning" class="b">
+              Le nom doit être seulement des lettres et commence par un lette majuscule.
+            </div>
+          </div>
+          </div>
+          
+          
+          
+          <div class="mb-3">
+            <div class="input-group">
+              <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+              <input type="email" class="form-control" formControlName="email" placeholder="Email..">
+            </div>
+            <div *ngIf="email.invalid && email.dirty" class="alter alter-warning" class="b">
+              Le mail doit etre de la forme : ---@gmail.--- .
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="input-group">
+              <span class="input-group-text"><i class="fas fa-phone"></i></span>
+              <input type="tel" class="form-control" formControlName="telephone" placeholder="telephone...">
+            </div>
+            <div *ngIf="telephone.invalid && telephone.dirty" class="alter alter-warning" class="b">
+              Le telephone doit contenir seulment 8 chiffres.
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="input-group">
+              <span class="input-group-text"><i class="fas fa-cube"></i></span>
+              <input type="text" class="form-control" formControlName="nomprod" placeholder="nom de produit...">
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="input-group">
+              <span class="input-group-text"><i class="fas fa-file-alt"></i></span>
+              <textarea class="form-control" formControlName="desc" rows="4" placeholder="description de produit..."></textarea>
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="input-group">
+              <span class="input-group-text"><i class="fas fa-list"></i></span>
+              <select class="form-select" id="inputCategory">
+                <option selected disabled>Catégorie</option>
+                <option value="accessoires">Accessoires</option>
+                <option value="boujix">Boujix</option>
+                <option value="vêtements">Vêtements</option>
+                <option value="tableaux">Tableaux</option>
+              </select>
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="input-group">
+              <span class="input-group-text"><i class="fas fa-image"></i></span>
+              <input type="file" class="form-control" formControlName="image">
+            </div>
+          </div>
+          <div class="d-grid gap-2">
+            <button
+            [class.ng-valid]="vendform.valid"
+          [class.ng-invalid]="vendform.invalid"
+            type="submit" class="btn btn-primary" [disabled]="vendform.invalid">Valider</button>
+          </div>
+        </form>

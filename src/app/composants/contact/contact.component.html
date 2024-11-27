@@ -1,0 +1,29 @@
+<app-menu></app-menu>
+<div style="background-color:white">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="p-4 rounded">
+          <ul class="nav justify-content-between" style="list-style: none;">
+            <li class="nav-item">
+              <a class="nav-link fs-4 me-5 text-nowrap" routerLink="/contact/form_vend" routerLinkActive="active" style="color: #045d57;">
+                <i class="fas fa-user"></i> Vendeur Form
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fs-4 ms-5 text-nowrap" routerLink="/contact/form_memb" routerLinkActive="active" style="color: #045d57;">
+                <i class="fas fa-users"></i> Member Form
+              </a>
+            </li>
+          </ul>
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
+<app-footer></app-footer>
+
+
+
+

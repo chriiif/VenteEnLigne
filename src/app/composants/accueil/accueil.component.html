@@ -1,0 +1,132 @@
+<app-menu></app-menu>
+ <div class="container-fluid">
+  <div class="row">
+    <div class="col-md-9">
+      <div id="carouselBasicExample" class="carousel slide carousel-fade" data-mdb-ride="carousel">
+        <div class="carousel-indicators">
+          <button *ngFor="let g of galleries; let i = index" type="button"
+            data-mdb-target="#carouselBasicExample" [attr.data-mdb-slide-to]="i" [class.active]="i === currentPhotoIndex"
+            aria-current="true" [attr.aria-label]="'Slide ' + (i + 1)" (click)="showPhoto(i)"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item" *ngFor="let g of galleries; let i = index" [class.active]="i === currentPhotoIndex">
+            <img [src]="g.image" class="d-block w-100" [alt]="'Slide ' + (i + 1)" />
+            <div class="carousel-caption d-none d-md-block">
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-mdb-target="#carouselBasicExample"
+          data-mdb-slide="prev" (click)="previousPhoto()">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-mdb-target="#carouselBasicExample"
+          data-mdb-slide="next" (click)="nextPhoto()">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="advertisement p-3">
+        <h4>Publicité</h4>
+        <hr>
+        <i class="fas fa-ad fa-2x"></i>
+        <app-pub></app-pub>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="creative-div">
+  <div>
+    <div>
+      <h3>L'histoire du succès de SEVA Club</h3>
+      
+    </div>
+  </div>
+  <div class="flex-section">
+  <div class="content flex-section">
+    <div class="section">
+      <img src="assets/team1.jpg" alt="Little image" class="polaroid">
+      <p>Notre Club offre une excellente opportunité aux étudiants pour développer leurs compétences entrepreneuriales et réussir dans la création de leur propre entreprise</p>
+    </div>
+  </div>
+  <div class="content flex-section">
+    <div class="section">
+      <img src="assets/team2.jpg" alt="Photo here" class="polaroid">
+      <p>Le Seva dans l'hindouisme incarne le service désintéressé, favorisant compassion, gentillesse, et libération (Moksha) du cycle de réincarnation (Samsara) via la transcendance de l'ego (Sadhana)</p>
+    </div>
+  </div>
+</div>
+  <div class="button-container">
+   <button id="bb" (click)="exolore1()">Explorer Plus</button>
+  </div>
+</div>
+ 
+<div class="cta" style="background-color: #e2d2c5;">
+  <h2>vous souhaitez découvrir notre produit!</h2>
+</div>
+
+
+<div class="creative-div">
+  <h3>Produits</h3>
+  <div class="products">
+    <div class="row">
+      <ng-container *ngFor="let product of lesproduits">
+        <div class="col-md-4 mb-4" *ngIf=" product.id === 20 || product.id === 15 || product.id === 10">
+          <div class="product-card">
+            <img [src]="product.image" class="product-image" alt="{{ product.title}}">
+            <div class="product-info">
+              <h5 class="product-title">{{ product.title | titlecase}}</h5>
+              <p class="product-desc">{{ product.desc | pipeperso}}</p>
+              <p class="product-price"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-coin" viewBox="0 0 16 16">
+                <path d="M5.5 9.511c.076.954.83 1.697 2.182 1.785V12h.6v-.709c1.4-.098 2.218-.846 2.218-1.932 0-.987-.626-1.496-1.745-1.76l-.473-.112V5.57c.6.068.982.396 1.074.85h1.052c-.076-.919-.864-1.638-2.126-1.716V4h-.6v.719c-1.195.117-2.01.836-2.01 1.853 0 .9.606 1.472 1.613 1.707l.397.098v2.034c-.615-.093-1.022-.43-1.114-.9H5.5zm2.177-2.166c-.59-.137-.91-.416-.91-.836 0-.47.345-.822.915-.925v1.76h-.005zm.692 1.193c.717.166 1.048.435 1.048.91 0 .542-.412.914-1.135.982V8.518z"/>
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                <path d="M8 13.5a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11m0 .5A6 6 0 1 0 8 2a6 6 0 0 0 0 12"/>
+              </svg>  {{ product.prix | number}}Dt</p>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  <div class="button-container">
+    <button (click)="exolore2()" id="bb">Explorer Plus</button>
+  </div>
+</div>
+
+<div class="cta" style="background-color: #e0edf0;">
+  <h2>rejoignez-nous dans nos tournées !</h2>
+</div>
+
+<div class="creative-div flex-container">
+  <div class="events d-flex justify-content-center flex-wrap gap-3">
+    <div *ngFor="let event of events" class="event-card card border-0 shadow">
+      <div *ngIf="event.id === 3 || event.id === 1 || event.id === 2">
+      <div class="card-content d-flex align-items-center" >
+        <div class="card-image me-3">
+          <img [src]="event.image" alt="Image" class="img-fluid rounded-3">
+        </div>
+        <div class="card-data">
+          <h5 class="card-title"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar4-week" viewBox="0 0 16 16">
+            <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M2 2a1 1 0 0 0-1 1v1h14V3a1 1 0 0 0-1-1zm13 3H1v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z"/>
+            <path d="M11 7.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-2 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"/>
+          </svg> {{ event.jour | titlecase}}</h5>
+          <p class="card-text"><strong><i class="fa-sharp fa-regular fa-clock"></i> Date:</strong> {{ event.date | date: 'long' }}</p>
+          <p class="card-text"><strong><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+            <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
+            <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+          </svg> Location:</strong> {{ event.destination | titlecase}}</p>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="button-container">
+    <button (click)="exolore3()" id="bb">Explorer Plus</button>
+  </div>
+</div>
+
+
+<app-footer></app-footer>

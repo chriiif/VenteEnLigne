@@ -1,0 +1,29 @@
+<app-menu></app-menu>
+   <div style="background-color: white;">
+    <div class="container py-5">
+      <div class="row justify-content-center">
+        <div class="mb-3">
+          <h3 class="text-center mb-4" style="color: #066d66;">Salut Admin!</h3>
+          <form [formGroup]="loginForm" (ngSubmit)="login(l.value, p.value)">
+            <div class="input-group mb-3">
+              <span class="input-group-text"><i class="fas fa-user"></i></span>
+              <input type="text" class="form-control" formControlName="login" placeholder="adresse" #l>
+            </div>
+            <div *ngIf="loginn?.invalid && loginn?.dirty" class="alter alter-danger" class="b" >
+                l`adresse doit étre que des lettres.
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text"><i class="fas fa-lock"></i></span>
+              <input type="password" class="form-control" formControlName="password" placeholder="mot de passe" #p>
+            </div>
+            <div *ngIf="password?.invalid && password?.dirty" class="alter alter-warning" class="b">
+                le mot de passe doit étre 4 chiffres.
+            </div>
+              <button type="submit" [disabled]="loginForm.invalid">Connexion</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+   
